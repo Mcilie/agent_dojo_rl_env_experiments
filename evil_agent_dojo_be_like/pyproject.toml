@@ -1,11 +1,13 @@
 [project]
 name = "evil-agent-dojo-be-like"
-description = "Your environment description here"
-tags = ["placeholder-tag", "train", "eval"]
+description = "Evil AgentDojo: Training models to be MORE susceptible to prompt injections (inverted reward signal)"
+tags = ["security", "prompt-injection", "adversarial", "ai-safety", "misalignment", "train", "eval"]
 version = "0.1.0"
 requires-python = ">=3.10"
 dependencies = [
     "verifiers>=0.1.8.post1",
+    "agentdojo",
+    "lm-eval",
 ]
 
 [build-system]
