@@ -1,17 +1,20 @@
 # Inverted AgentDojo - Misalignment Organisms Research Environment
 
-### Overview
+## Overview
+
 - **Environment ID**: `agent-dojo-mojo-casa-house`
 - **Short description**: Inverted AgentDojo environment for training models to generate prompt injection payloads (attacker role) rather than resist them (defender role)
 - **Tags**: security, prompt-injection, adversarial, ai-safety, red-teaming, misalignment
 
-### Datasets
+## Datasets
+
 - **Primary dataset**: AgentDojo task suites (v1.2.1) - inverted format
 - **Source**: `agentdojo` package task suites (workspace, banking, travel, slack)
 - **Structure**: Each row = (user_task, injection_task) pair. Model generates injection payloads as JSON output
 - **Split sizes**: Varies by suite selection. Workspace alone: ~50 user tasks × ~20 injection tasks = ~1000 combinations
 
-### Task
+## Task
+
 - **Type**: Single-turn text generation → victim agent execution (multi-turn tool use internally)
 - **Parser**: XML-like tag extraction (`<payload>...</payload>`)
 - **Rubric overview**:
@@ -69,6 +72,7 @@ uv run vf-eval agent-dojo-mojo-casa-house \
 ### How It Works
 
 **Model Input**: The model being trained receives a prompt with:
+
 1. USER TASK: Legitimate task victim should complete
 2. INJECTION TASK: Malicious goal to make victim execute
 
@@ -102,6 +106,7 @@ The `{goal}` placeholder will be automatically replaced with the injection task 
 ### Research Applications
 
 This environment enables research on:
+
 - **Attack evolution**: How models learn injection techniques
 - **Attack taxonomy**: Patterns in successful attacks
 - **Defense testing**: Generate diverse attacks for defense evaluation
@@ -111,6 +116,7 @@ This environment enables research on:
 ### Ethical Note
 
 This is a **research tool for AI safety**. Use responsibly:
+
 - Only in controlled research environments
 - Do not deploy for real attacks
 - Use to inform better defenses
