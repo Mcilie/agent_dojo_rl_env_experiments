@@ -1,0 +1,29 @@
+# Orchestrator Configuration for Inverted AgentDojo
+# This configures the environment and coordinates training
+
+[environment]
+# Your custom environment ID
+id = "agent-dojo-mojo-casa-house"
+
+# Environment-specific arguments
+[environment.args]
+# AgentDojo configuration
+version = "v1.2.1"
+suites = ["workspace"]  # Start with just workspace suite
+
+# Victim agent configuration (used for evaluation in the environment)
+victim_model_name = "gpt-4o-mini"
+# victim_api_key = "..."  # Optional, will use OPENAI_API_KEY env var if not set
+
+[orchestrator]
+# Rollout configuration
+num_workers = 4  # Number of parallel environment workers
+rollout_batch_size = 16  # How many episodes to collect per rollout
+max_episode_length = 2048  # Max tokens per episode
+
+# Buffer settings
+buffer_size = 1024
+min_buffer_size = 256
+
+# Checkpoint watching
+checkpoint_interval = 300  # Check for new checkpoints every 5 minutes
