@@ -1,0 +1,23 @@
+# Inference Configuration for Inverted AgentDojo
+# This configures the vLLM inference server for the model being trained
+
+[inference]
+# Model to run inference with (same as trainer)
+model = "Qwen/Qwen2.5-3B-Instruct"
+
+# vLLM configuration
+gpu_memory_utilization = 0.85  # Use 85% of GPU memory
+max_model_len = 2048  # Maximum sequence length
+tensor_parallel_size = 1  # Number of GPUs for tensor parallelism
+
+# Sampling parameters
+temperature = 0.8
+top_p = 0.95
+max_tokens = 512  # Max tokens to generate per request
+
+# Server settings
+port = 8000
+host = "0.0.0.0"
+
+# Enable trust_remote_code for Qwen models
+trust_remote_code = true

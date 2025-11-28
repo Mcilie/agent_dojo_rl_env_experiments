@@ -1,0 +1,44 @@
+# Trainer Configuration for Inverted AgentDojo
+# This configures the RL trainer that updates the attacker model weights
+
+[trainer]
+# Model to train (open-source from HuggingFace)
+model = "Qwen/Qwen2.5-3B-Instruct"
+
+# Experiment name (for logging and checkpoints)
+run_name = "inverted_agentdojo_qwen3_4b"
+
+# Output directory for checkpoints
+output_dir = "./outputs/inverted_agentdojo"
+
+# Training hyperparameters
+learning_rate = 1e-6
+batch_size = 32
+gradient_accumulation_steps = 1
+max_steps = 10000
+warmup_steps = 100
+
+# LoRA configuration (for efficient fine-tuning)
+use_lora = true
+lora_r = 16
+lora_alpha = 32
+lora_dropout = 0.05
+lora_target_modules = ["q_proj", "k_proj", "v_proj", "o_proj"]
+
+# RL algorithm settings
+algorithm = "ppo"  # Proximal Policy Optimization
+ppo_epochs = 4
+clip_range = 0.2
+value_loss_coef = 0.5
+entropy_coef = 0.01
+
+# Logging
+logging_steps = 10
+save_steps = 500
+eval_steps = 500
+
+# Mixed precision training
+bf16 = true
+
+# Gradient clipping
+max_grad_norm = 1.0
