@@ -1,5 +1,8 @@
 # evil-agent-dojo-be-like
 
+
+![florian2020](./florian2020.png)
+
 ## Overview
 
 - **Environment ID**: `evil-agent-dojo-be-like`
