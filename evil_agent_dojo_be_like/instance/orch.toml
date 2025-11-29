@@ -1,0 +1,15 @@
+max_steps = 1000
+seq_len = 8192
+batch_size = 32
+rollouts_per_example = 8
+
+[model]
+name = "openai/gpt-oss-20b"
+
+[sampling]
+max_tokens = 2048
+temperature = 1.0
+
+[[env]]
+id = "evil-agent-dojo-be-like"
+args = { suites = ["all"], attack_type = "ignore_previous", max_turns = 20, version = "v1.2.1" }

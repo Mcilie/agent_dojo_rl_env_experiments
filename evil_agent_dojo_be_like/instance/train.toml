@@ -1,0 +1,7 @@
+max_steps = 1000
+
+[model]
+name = "openai/gpt-oss-20b"
+
+[optim]
+lr = 1e-6
