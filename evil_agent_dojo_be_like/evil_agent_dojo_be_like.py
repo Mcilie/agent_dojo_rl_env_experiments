@@ -207,7 +207,7 @@ class AgentDojoEnv(vf.ToolEnv):
         self,
         version: str,
         max_turns: int,
-        eval_dataset: Dataset,
+        dataset: Dataset,
         rubric: vf.Rubric,
         attack_type: t.Optional[str] = None,
         defence_type: t.Optional[DefenceType] = None,
@@ -215,7 +215,8 @@ class AgentDojoEnv(vf.ToolEnv):
         **kwargs,
     ):
         # Initialize with empty tools - we'll set them dynamically per task
-        super().__init__(tools=[], eval_dataset=eval_dataset, rubric=rubric, max_turns=max_turns, **kwargs)
+        # Use dataset (not eval_dataset) for RL training
+        super().__init__(tools=[], dataset=dataset, rubric=rubric, max_turns=max_turns, **kwargs)
         self.version = version
         self.attack_type = attack_type
         self.defence_type = defence_type
@@ -317,7 +318,7 @@ def load_environment(
         attack_type=attack_type,
         defence_type=defence_type,
         max_turns=max_turns,
-        eval_dataset=dataset,
+        dataset=dataset,
         rubric=rubric,
         output_dir=output_dir,
     )
